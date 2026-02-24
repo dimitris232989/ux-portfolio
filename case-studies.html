@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Studies | Pivai</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="news.css" />
+  <link rel="stylesheet" href="solutions.css" />
+
+  <style>
+    .cs-map-wrap {
+      max-width: 1280px;
+      margin: 60px auto;
+      padding: 0 28px
+    }
+
+    .cs-head {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cs-head h2 {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 500;
+      font-size: clamp(28px, 4vw, 40px);
+      color: #0c1a2a
+    }
+
+    .cs-head .underline {
+      display: inline-block;
+      width: 64px;
+      height: 3px;
+      background: #0c1a2a;
+      border-radius: 2px;
+      margin: 10px auto
+    }
+
+    .cs-head p {
+      margin: 6px auto 18px;
+      color: #1a2d44;
+      opacity: .9;
+      max-width: 820px
+    }
+
+    .cs-map {
+      height: 64vh;
+      min-height: 420px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, .08);
+      border: 1px solid rgba(12, 26, 42, .08)
+    }
+
+    .cs-controls {
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid rgba(12, 26, 42, .10);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .85);
+    }
+
+    .cs-control-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cs-legend {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .cs-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(12, 26, 42, .12);
+      background: #fff;
+      font-size: 13px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-strong {
+      background: #0c1a2a;
+    }
+
+    .dot-soft {
+      background: rgba(12, 26, 42, .25);
+    }
+
+    .cs-status {
+      color: #6d7b90;
+      font-size: 13px;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+
+    .cs-btn {
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(12, 26, 42, .18);
+      background: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .cs-btn:hover {
+      border-color: rgba(198, 40, 40, .45);
+    }
+
+    .cs-select {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(12, 26, 42, .18);
+      background: #fff;
+      font-weight: 600;
+    }
+
+    .cs-select-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .view-img-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(12, 26, 42, .18);
+      background: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .view-img-btn:hover {
+      border-color: rgba(198, 40, 40, .45);
+      background: #f8f8f8;
+    }
+
+    /* Modal */
+    .frame-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .frame-modal[aria-hidden="false"] {
+      display: flex;
+    }
+
+    .frame-modal-content {
+      background: #0b0f14;
+      border-radius: 14px;
+      max-width: 1200px;
+      width: 100%;
+      padding: 12px;
+      position: relative;
+      max-height: 92vh;
+      overflow: auto;
+    }
+
+    .frame-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      color: #fff;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .frame-modal-title {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .frame-close {
+      font-size: 28px;
+      background: none;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 10px;
+    }
+
+    .frame-close:hover {
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .frame-nav {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .frame-nav .nav-btn {
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .25);
+      background: rgba(255, 255, 255, .06);
+      color: #fff;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .frame-nav .nav-btn:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+    }
+
+    .frame-img-wrap {
+      padding: 10px;
+    }
+
+    .frame-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+      align-items: start;
+    }
+
+    .frame-panel {
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 220px;
+    }
+
+    .frame-layer {
+      position: relative;
+      display: block;
+    }
+
+    .frame-img {
+      display: block;
+      max-width: 100%;
+      max-height: 60vh;
+      height: auto;
+      width: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bbox-canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .frame-fallback {
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+      display: none;
+    }
+
+    .det-strip {
+      margin-top: 10px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+      padding: 10px;
+      max-height: 220px;
+      overflow: auto;
+      color: #fff;
+    }
+
+    .det-row2 {
+      display: flex;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 10px;
+      align-items: center;
+    }
+
+    .det-row2+.det-row2 {
+      margin-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .det-crop {
+      width: 84px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .14);
+    }
+
+    .det-text {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .det-empty {
+      padding: 10px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 900px) {
+      .frame-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .frame-img {
+        max-height: 48vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-grid" id="headerGrid">
+      <!-- Logo -->
+      <a class="brand" href="index.html" aria-label="PivaiTech home">
+        <img src="images/pivailogo.png" alt="PivaiTech logo" />
+      </a>
+
+      <!-- NAV (click-to-open) -->
+      <nav class="primary-nav" role="navigation" aria-label="Main Navigation">
+        <ul class="menu" role="menubar">
+          <!-- COMPANY (3-column) -->
+          <li class="menu-item mega" role="none">
+            <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span class="label">Company</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="mega-panel" role="menu" aria-label="Company">
+              <div class="mega3">
+                <!-- Left: title + short description -->
+                <div class="col intro">
+                  <h3>Company</h3>
+                  <p>Pioneering AI-powered infrastructure with a global vision.</p>
+                </div>
+
+                <!-- Middle: big links driving the preview -->
+                <div class="col links">
+                  <a class="mega-link is-active" href="about.html" data-preview-img="images/company.png"
+                    data-preview-title="About Us" data-preview-desc="Who we are, what we do, and how we build.">About
+                    Us</a>
+
+                  <a class="mega-link" href="team.html" data-preview-img="images/team.png"
+                    data-preview-title="Our people"
+                    data-preview-desc="Meet the leadership and the builders behind PivaiTech.">Our
+                    Team</a>
+
+                  <a class="mega-link" href="news.html" data-preview-img="images/conference.png"
+                    data-preview-title="News & Events"
+                    data-preview-desc="Discover the latest announcements and where to meet us.">News
+                    & Events</a>
+
+                  <a class="mega-link" href="careers.html" data-preview-img="images/careers.png"
+                    data-preview-title="Careers"
+                    data-preview-desc="Help us design the next decade of intelligent infrastructure.">Careers</a>
+                </div>
+
+                <!-- Right: live preview -->
+                <div class="col preview">
+                  <figure>
+                    <img src="images/company.png" alt="Horizon Building">
+                    <figcaption>
+                      <h4>About Us</h4>
+                      <p>Who we are, what we do, and how we build.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- PRODUCTS (3-column) -->
+          <li class="menu-item mega" role="none">
+            <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span class="label">Products</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="mega-panel" role="menu" aria-label="Products">
+              <div class="mega3">
+                <div class="col intro">
+                  <h3>Products</h3>
+                  <p>Innovative AI solutions that redefine accuracy and control.</p>
+                </div>
+
+                <div class="col links">
+                  <a class="mega-link is-active" href="roadmap.html" data-preview-img="images/Roadmap.jpeg"
+                    data-preview-title="Roadmap"
+                    data-preview-desc="Advanced AI-powered navigation and route intelligence.">Roadmap</a>
+
+                  <a class="mega-link" href="signmap.html" data-preview-img="images/sign3.png"
+                    data-preview-title="Signmap"
+                    data-preview-desc="Real-time road sign detection and classification with precision vision.">Signmap</a>
+                </div>
+
+                <div class="col preview">
+                  <figure>
+                    <img src="images/Roadmap.jpeg" alt="">
+                    <figcaption>
+                      <h4>Roadmap</h4>
+                      <p>Advanced AI-powered navigation and route intelligence.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- CASE STUDIES — plain link (no dropdown) -->
+          <li class="menu-item" role="none">
+            <a class="dropdown-toggle" href="case-studies.html" role="menuitem">
+              <span class="label">Case studies</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right: Language + minimal Contact -->
+      <div class="right-controls">
+        <div class="lang dropdown">
+          <button class="lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+            <span class="code">EN</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <ul class="lang-menu" role="menu">
+            <li role="none"><button role="menuitem" data-lang="FR">FR</button></li>
+            <li role="none"><button role="menuitem" data-lang="DE">DE</button></li>
+            <li role="none"><button role="menuitem" data-lang="ES">ES</button></li>
+            <li role="none"><button role="menuitem" data-lang="IT">IT</button></li>
+          </ul>
+        </div>
+
+        <a class="btn ghost" href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="rule rule-header"></div>
+
+    <div class="tagline c-tagline">
+      <div class="tagline-inner c-tagline-inner">
+        <h1 class="c-title">Case Studies.</h1>
+        <p class="c-subtitle">Interactive road inspection data visualization.</p>
+      </div>
+    </div>
+
+    <div class="rule rule-tagline"></div>
+  </header>
+
+  <section class="hero" aria-label="Hero background">
+    <div class="overlay"></div>
+  </section>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb" data-reveal>
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span class="current">Case Studies</span>
+    </nav>
+
+    <section class="cs-map-wrap" data-reveal>
+      <header class="cs-head">
+        <h2>Interactive Map</h2>
+        <span class="underline"></span>
+        <p>Explore inspection frames with AI-detected road features</p>
+      </header>
+
+      <div class="cs-controls">
+        <div class="cs-control-row">
+          <button type="button" id="resetView" class="cs-btn">Reset Map View</button>
+
+          <div class="cs-legend">
+            <span class="cs-pill"><span class="dot dot-strong"></span> Positive detection</span>
+            <span class="cs-pill"><span class="dot dot-soft"></span> Negative detection</span>
+            <span id="csStatus" class="cs-status">Loading...</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="cs-map" class="cs-map"></div>
+    </section>
+  </main>
+
+  <!-- Footer (keep your existing footer as-is) -->
+  <footer class="footer" data-reveal>
+    <div class="footer-top">
+      <div>
+        <h4>Subscribe</h4>
+        <p>Subscribe to our newsletter for updates.</p>
+        <a href="subscribe.html" class="btn">Subscribe</a>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="news.html">News & Events</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="roadmap.html">RoadMap</a></li>
+          <li><a href="signmap.html">SignMap</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Case Studies</h4>
+        <ul>
+          <li><a href="case-studies.html">Explore Projects</a></li>
+          <li><a href="case-studies.html">Road Inspection Data</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-col logo-col">
+        <a href="index.html" aria-label="PivaiTech home">
+          <img src="images/pivailogo.png" alt="PivaiTech Logo">
+        </a>
+      </div>
+
+      <div class="footer-col text-col">
+        <p>&copy; 2025 Pivai. All rights reserved.</p>
+      </div>
+
+      <div class="footer-col social-col" aria-label="Social links">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+  <!-- Modal -->
+  <div id="frameModal" class="frame-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="frame-modal-content">
+      <div class="frame-modal-header">
+        <div class="frame-modal-title" id="modalTitle">Frame image</div>
+
+        <div class="frame-nav">
+          <button type="button" id="prevBtn" class="nav-btn">◀ Prev</button>
+          <button type="button" id="nextBtn" class="nav-btn">Next ▶</button>
+        </div>
+
+        <button class="frame-close" type="button">×</button>
+      </div>
+
+      <div class="frame-img-wrap">
+        <div class="frame-grid">
+          <!-- RGB -->
+          <div class="frame-panel">
+            <div class="frame-layer">
+              <img id="frameImage" class="frame-img" alt="RGB frame">
+              <canvas id="bboxCanvas" class="bbox-canvas"></canvas>
+            </div>
+          </div>
+
+          <!-- DEPTH -->
+          <div class="frame-panel">
+            <div class="frame-layer">
+              <img id="depthImage" class="frame-img" alt="Depth frame">
+              <canvas id="depthBboxCanvas" class="bbox-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div id="frameFallback" class="frame-fallback">
+          Image not found.
+        </div>
+      </div>
+
+      <div id="detStrip" class="det-strip">
+        <div id="detStripInner"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    (async function () {
+      const statusEl = document.getElementById("csStatus");
+      const resetBtn = document.getElementById("resetView");
+
+      const modal = document.getElementById("frameModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const closeBtn = modal.querySelector(".frame-close");
+
+      const modalImg = document.getElementById("frameImage");
+      const bboxCanvas = document.getElementById("bboxCanvas");
+
+      const depthImg = document.getElementById("depthImage");
+      const depthBboxCanvas = document.getElementById("depthBboxCanvas");
+
+      const modalFallback = document.getElementById("frameFallback");
+      const detStripInner = document.getElementById("detStripInner");
+
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      let allDatasets = [];
+      let currentEvents = [];
+      let currentDatasetId = "all";
+      let lastDetectionsForOverlay = [];
+      let currentIndex = -1;
+
+      function pad6(n) {
+        const s = String(n);
+        return s.length >= 6 ? s : ("000000" + s).slice(-6);
+      }
+
+      function fmtNum(x, digits = 2) {
+        if (x == null || x === "") return null;
+        const n = Number(x);
+        return Number.isFinite(n) ? n.toFixed(digits) : null;
+      }
+
+      function buildDetLine(d) {
+        const label = d.label ?? "Detection";
+        const score = fmtNum(d.score, 3);
+        const depth = fmtNum(d.depth_m, 2);
+        let sizeStr = null;
+        if (Array.isArray(d.size_m) && d.size_m.length >= 2) {
+          const w = fmtNum(d.size_m[0], 2);
+          const h = fmtNum(d.size_m[1], 2);
+          if (w && h) sizeStr = `${w}×${h}m`;
+        }
+        const parts = [label];
+        if (score) parts.push(`score=${score}`);
+        if (depth) parts.push(`depth=${depth}m`);
+        if (sizeStr) parts.push(`size=${sizeStr}`);
+        return parts.join(" | ");
+      }
+
+      function datasetRootFromEventsPath(events_path) {
+        const p = String(events_path || "").replace(/\\/g, "/");
+        const i = p.lastIndexOf("/");
+        return (i >= 0) ? p.slice(0, i) : ".";
+      }
+
+      function getDepthUrlFromRgbUrl(rgbUrl) {
+        // expects rgbUrl like: data/demo1/jpeg/000100.jpg
+        // returns depth like:   data/demo1/depth/000100.jpg
+        return String(rgbUrl).replace(/\/jpeg\//, "/depth/");
+      }
+
+      async function fetchJSONorJSONL(path) {
+        const p = String(path || "");
+        const isJsonl = p.toLowerCase().endsWith(".jsonl");
+
+        const res = await fetch(p);
+        if (!res.ok) throw new Error(`HTTP ${res.status} for ${p}`);
+
+        if (!isJsonl) {
+          return await res.json();
+        }
+
+        const txt = await res.text();
+        const lines = txt.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+        const out = [];
+        for (const line of lines) {
+          try { out.push(JSON.parse(line)); }
+          catch { /* skip bad line */ }
+        }
+        return out;
+      }
+
+      function normalizeEventFromJSONL(obj, dataset) {
+        const nav = obj.nav_match || {};
+        const dets = Array.isArray(obj.detections) ? obj.detections : [];
+
+        const det_list = dets.map(d => ({
+          label: d.label ?? d.class ?? "Sign",
+          score: d.score,
+          depth_m: d.depth_m,
+          size_m: (Number.isFinite(d.width_m) && Number.isFinite(d.height_m)) ? [d.width_m, d.height_m] : undefined,
+          bbox_xyxy: d.bbox_xyxy
+        }));
+
+        const root = datasetRootFromEventsPath(dataset.events_path);
+
+        // "jpeg": "jpeg\\000100.jpg"  -> "jpeg/000100.jpg"
+        const eventJpeg = (typeof obj.jpeg === "string" && obj.jpeg.length)
+          ? obj.jpeg.replace(/\\/g, "/").replace(/^\.?\//, "")
+          : null;
+
+        // If dataset.images_path already ends with /jpeg, and eventJpeg starts with "jpeg/",
+        // avoid creating ".../jpeg/jpeg/..."
+        const thumb = eventJpeg
+          ? `${dataset.images_path}/${eventJpeg.replace(/^jpeg\//, "")}`.replace(/\/+/g, "/")
+          : `${dataset.images_path}/${pad6(obj.frame_id)}.jpg`.replace(/\/+/g, "/");
+
+        return {
+          frame_id: obj.frame_id,
+          event_time_ros: obj.event_time_ros,
+          policy: obj.policy,
+          session_dir: obj.session_dir,
+          npz: obj.npz,
+
+          detections: det_list.length,
+          det_list,
+          lat: nav.latitude,
+          lon: nav.longitude,
+
+          // keep around if you need root later
+          _dataset_root: root,
+
+          thumb
+        };
+      }
+
+      function setupCanvasToMatchImageFor(canvasEl, imgEl) {
+        const w = imgEl.offsetWidth;
+        const h = imgEl.offsetHeight;
+        if (!w || !h) return;
+        canvasEl.width = w;
+        canvasEl.height = h;
+        canvasEl.style.width = w + "px";
+        canvasEl.style.height = h + "px";
+      }
+
+      // If bbox already fits inside image -> keep 1.0.
+      // If it doesn't -> scale down to fit (best-effort).
+      function bboxToImg(bbox, imgEl) {
+        let [x1, y1, x2, y2] = bbox.map(Number);
+        if (![x1, y1, x2, y2].every(Number.isFinite)) return null;
+
+        const iw = imgEl.naturalWidth, ih = imgEl.naturalHeight;
+        if (!iw || !ih) return null;
+
+        const maxX = Math.max(x1, x2);
+        const maxY = Math.max(y1, y2);
+
+        if (maxX <= iw && maxY <= ih) {
+          return [x1, y1, x2, y2]; // scale 1.0
+        }
+
+        const sx = iw / maxX;
+        const sy = ih / maxY;
+        return [x1 * sx, y1 * sy, x2 * sx, y2 * sy];
+      }
+
+      function drawBBoxesOn(canvasEl, imgEl, dets) {
+        const ctx = canvasEl.getContext("2d");
+        ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+
+        if (!imgEl.naturalWidth || !imgEl.naturalHeight) return;
+        if (!Array.isArray(dets) || dets.length === 0) return;
+
+        const sxDisp = canvasEl.width / imgEl.naturalWidth;
+        const syDisp = canvasEl.height / imgEl.naturalHeight;
+
+        ctx.lineWidth = 2;               // thinner
+        ctx.strokeStyle = "#ff3b30";     // red outline
+
+        dets.forEach((d, idx) => {
+          const bbox = d.bbox_xyxy;
+          if (!Array.isArray(bbox) || bbox.length !== 4) return;
+
+          const b = bboxToImg(bbox, imgEl);
+          if (!b) return;
+
+          let [x1, y1, x2, y2] = b;
+          const rx = x1 * sxDisp;
+          const ry = y1 * syDisp;
+          const rw = (x2 - x1) * sxDisp;
+          const rh = (y2 - y1) * syDisp;
+
+          ctx.strokeRect(rx, ry, rw, rh);
+
+          const lbl = `Sign${idx + 1}`;
+          ctx.font = "bold 16px sans-serif";
+          ctx.fillStyle = "#ff3b30";
+          ctx.fillText(lbl, rx + 4, Math.max(18, ry - 6));
+        });
+      }
+
+      function cropToDataURL(imgEl, bbox) {
+        if (!Array.isArray(bbox) || bbox.length !== 4) return null;
+
+        const b = bboxToImg(bbox, imgEl);
+        if (!b) return null;
+
+        let [x1, y1, x2, y2] = b;
+
+        x1 = Math.max(0, Math.floor(Math.min(x1, x2)));
+        y1 = Math.max(0, Math.floor(Math.min(y1, y2)));
+        x2 = Math.min(imgEl.naturalWidth, Math.floor(Math.max(x1, x2)));
+        y2 = Math.min(imgEl.naturalHeight, Math.floor(Math.max(y1, y2)));
+
+        const w = Math.max(1, x2 - x1);
+        const h = Math.max(1, y2 - y1);
+
+        const canvas = document.createElement("canvas");
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(imgEl, x1, y1, w, h, 0, 0, w, h);
+
+        try { return canvas.toDataURL("image/jpeg", 0.85); }
+        catch { return null; }
+      }
+
+      function renderDetStrip(dets) {
+        if (!Array.isArray(dets) || dets.length === 0) {
+          detStripInner.innerHTML = '<div class="det-empty"><b>No detections</b></div>';
+          return;
+        }
+
+        detStripInner.innerHTML = dets.map((d, idx) => `
+          <div class="det-row2">
+            <img class="det-crop" id="detCrop_${idx}" alt="Crop">
+            <div class="det-text"><b>${buildDetLine(d)}</b></div>
+          </div>
+        `).join("");
+
+        const paintCrops = () => {
+          dets.forEach((d, idx) => {
+            const el = document.getElementById(`detCrop_${idx}`);
+            if (!el) return;
+            const url = cropToDataURL(modalImg, d.bbox_xyxy); // RGB only
+            if (url) el.src = url;
+            else el.style.display = "none";
+          });
+        };
+
+        if (modalImg.complete && modalImg.naturalWidth > 0) paintCrops();
+        else modalImg.addEventListener("load", paintCrops, { once: true });
+      }
+
+      function openModal(title) {
+        modalTitle.textContent = title || "Frame";
+        modalFallback.style.display = "none";
+        modal.setAttribute("aria-hidden", "false");
+        closeBtn.focus();
+      }
+
+      function closeModal() {
+        modal.setAttribute("aria-hidden", "true");
+        modalImg.src = "";
+        depthImg.src = "";
+        // clear canvases
+        bboxCanvas.getContext("2d").clearRect(0, 0, bboxCanvas.width, bboxCanvas.height);
+        depthBboxCanvas.getContext("2d").clearRect(0, 0, depthBboxCanvas.width, depthBboxCanvas.height);
+      }
+
+      closeBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
+      });
+
+      modalImg.addEventListener("error", () => {
+        modalFallback.style.display = "block";
+      });
+
+      depthImg.addEventListener("error", () => {
+        // If depth missing, hide it but keep RGB
+        depthImg.style.display = "none";
+        depthBboxCanvas.style.display = "none";
+      });
+      depthImg.addEventListener("load", () => {
+        depthImg.style.display = "block";
+        depthBboxCanvas.style.display = "block";
+      });
+
+      window.addEventListener("resize", () => {
+        if (modal.getAttribute("aria-hidden") === "false") {
+          setupCanvasToMatchImageFor(bboxCanvas, modalImg);
+          drawBBoxesOn(bboxCanvas, modalImg, lastDetectionsForOverlay);
+
+          setupCanvasToMatchImageFor(depthBboxCanvas, depthImg);
+          drawBBoxesOn(depthBboxCanvas, depthImg, lastDetectionsForOverlay);
+        }
+      });
+
+      const first = { lat: 34.0, lon: -81.0 }; // Default center
+      const map = L.map("cs-map", { preferCanvas: true }).setView([first.lat, first.lon], 13);
+
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap"
+      }).addTo(map);
+
+      const layer = L.layerGroup().addTo(map);
+
+      function computeBounds(list) {
+        let b = null;
+        for (const e of list) {
+          if (typeof e.lat !== "number" || typeof e.lon !== "number") continue;
+          b = b ? b.extend([e.lat, e.lon]) : L.latLngBounds([e.lat, e.lon], [e.lat, e.lon]);
+        }
+        return b;
+      }
+
+      resetBtn.addEventListener("click", () => {
+        const bounds = computeBounds(currentEvents);
+        if (bounds) map.fitBounds(bounds.pad(0.2));
+      });
+
+      function markerStyle(hasDet) {
+        return hasDet
+          ? { radius: 5, weight: 1, color: "#0c1a2a", fillColor: "#0c1a2a", fillOpacity: 0.9 }
+          : { radius: 3, weight: 1, color: "#0c1a2a", fillColor: "#0c1a2a", fillOpacity: 0.35 };
+      }
+
+      function renderMarkers() {
+        layer.clearLayers();
+
+        if (currentEvents.length === 0) {
+          statusEl.textContent = "No events to display";
+          return;
+        }
+
+        statusEl.textContent = `${currentEvents.length} frames`;
+
+        for (let i = 0; i < currentEvents.length; i++) {
+          const e = currentEvents[i];
+          const detCount = Number(e.detections || 0);
+          const hasDet = detCount > 0;
+          const imgUrl = e.thumb || `images/frames/${pad6(e.frame_id)}.jpg`;
+          const detPayload = encodeURIComponent(JSON.stringify(e.det_list || []));
+
+          const popupHtml = `
+            <div style="min-width:240px">
+              <div><b>Frame:</b> ${e.frame_id}</div>
+              <div><b>Detections:</b> ${detCount}</div>
+              <div><b>GPS:</b> ${Number(e.lat).toFixed(6)}, ${Number(e.lon).toFixed(6)}</div>
+              <button type="button" class="view-img-btn"
+                      data-view-frame="1"
+                      data-idx="${i}">
+                View image
+              </button>
+            </div>
+          `;
+
+          L.circleMarker([e.lat, e.lon], markerStyle(hasDet))
+            .bindPopup(popupHtml)
+            .addTo(layer);
+        }
+
+        const bounds = computeBounds(currentEvents);
+        if (bounds) map.fitBounds(bounds.pad(0.2));
+      }
+
+      function showFrameAtIndex(i) {
+        if (i < 0 || i >= currentEvents.length) return;
+        currentIndex = i;
+
+        const e = currentEvents[i];
+        lastDetectionsForOverlay = Array.isArray(e.det_list) ? e.det_list : [];
+
+        openModal(`Frame ${e.frame_id} (${e.npz || ""})`);
+        renderDetStrip(lastDetectionsForOverlay);
+
+        const rgbUrl = e.thumb || `images/frames/${pad6(e.frame_id)}.jpg`;
+        const depthUrl = getDepthUrlFromRgbUrl(rgbUrl);
+
+        // draw boxes after each image loads
+        modalImg.addEventListener("load", () => {
+          setTimeout(() => {
+            setupCanvasToMatchImageFor(bboxCanvas, modalImg);
+            drawBBoxesOn(bboxCanvas, modalImg, lastDetectionsForOverlay);
+          }, 60);
+        }, { once: true });
+
+        depthImg.addEventListener("load", () => {
+          setTimeout(() => {
+            setupCanvasToMatchImageFor(depthBboxCanvas, depthImg);
+            drawBBoxesOn(depthBboxCanvas, depthImg, lastDetectionsForOverlay);
+          }, 60);
+        }, { once: true });
+
+        modalFallback.style.display = "none";
+        modalImg.src = rgbUrl;
+        depthImg.src = depthUrl;
+
+        if (prevBtn) prevBtn.disabled = (i === 0);
+        if (nextBtn) nextBtn.disabled = (i === currentEvents.length - 1);
+      }
+
+      prevBtn.addEventListener("click", () => showFrameAtIndex(currentIndex - 1));
+      nextBtn.addEventListener("click", () => showFrameAtIndex(currentIndex + 1));
+
+      document.addEventListener("keydown", (e) => {
+        if (modal.getAttribute("aria-hidden") !== "false") return;
+        if (e.key === "ArrowLeft") showFrameAtIndex(currentIndex - 1);
+        if (e.key === "ArrowRight") showFrameAtIndex(currentIndex + 1);
+      });
+
+      document.addEventListener("click", (evt) => {
+        const btn = evt.target.closest("[data-view-frame]");
+        if (!btn) return;
+        const idx = Number(btn.getAttribute("data-idx"));
+        if (!Number.isFinite(idx)) return;
+        showFrameAtIndex(idx);
+      });
+
+      // Load datasets list
+      try {
+        statusEl.textContent = "Loading datasets...";
+        const res = await fetch("data/datasets.json");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        allDatasets = await res.json();
+      } catch (e) {
+        console.error("Failed to load datasets:", e);
+        statusEl.textContent = "Failed to load datasets";
+        alert("Could not load data/datasets.json. Please create this file with your dataset list.");
+        return;
+      }
+
+      // Create dropdown
+      const sel = document.createElement("select");
+      sel.id = "datasetSelect";
+      sel.className = "cs-select";
+      sel.innerHTML = '<option value="all">All datasets</option>' +
+        allDatasets.map(d => `<option value="${d.id}">${d.name}</option>`).join("");
+
+      const controlRow = document.querySelector(".cs-control-row");
+      const dropdownWrapper = document.createElement("div");
+      dropdownWrapper.className = "cs-select-wrap";
+      dropdownWrapper.innerHTML = '<label for="datasetSelect" style="font-weight:600;">Filter by:</label>';
+      dropdownWrapper.appendChild(sel);
+      controlRow.insertBefore(dropdownWrapper, controlRow.firstChild);
+
+      async function loadDataset(datasetId) {
+        currentDatasetId = datasetId;
+        currentEvents = [];
+
+        if (datasetId === "all") {
+          statusEl.textContent = "Loading all datasets...";
+          const out = [];
+          for (const d of allDatasets) {
+            try {
+              const raw = await fetchJSONorJSONL(d.events_path);
+              const norm = raw.map(obj => normalizeEventFromJSONL(obj, d)).filter(e => Number.isFinite(e.lat) && Number.isFinite(e.lon));
+              out.push(...norm);
+            } catch (err) {
+              console.warn("Failed loading dataset:", d.id, err);
+            }
+          }
+          currentEvents = out;
+          renderMarkers();
+          return;
+        }
+
+        const dataset = allDatasets.find(d => d.id === datasetId);
+        if (!dataset) return;
+
+        statusEl.textContent = `Loading ${dataset.name}...`;
+        try {
+          const raw = await fetchJSONorJSONL(dataset.events_path);
+          const norm = raw.map(obj => normalizeEventFromJSONL(obj, dataset)).filter(e => Number.isFinite(e.lat) && Number.isFinite(e.lon));
+          currentEvents = norm;
+        } catch (e) {
+          console.error("Failed to load dataset:", e);
+          alert(`Could not load ${dataset.events_path}`);
+          currentEvents = [];
+        }
+
+        renderMarkers();
+      }
+
+      sel.addEventListener("change", async () => {
+        await loadDataset(sel.value);
+      });
+
+      // Initial load
+      await loadDataset("all");
+    })();
+  </script>
+</body>
+
+</html>

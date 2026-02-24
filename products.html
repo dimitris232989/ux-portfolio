@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products | PivaiTech</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- Global site styles + Products styles only (avoid cross-page bleed) -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="products.css" />
+  <link rel="stylesheet" href="news.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-grid" id="headerGrid">
+      <!-- Logo -->
+      <a class="brand" href="index.html" aria-label="PivaiTech home">
+        <img src="images/pivailogo.png" alt="PivaiTech logo" />
+      </a>
+
+      <!-- NAV (click-to-open) -->
+      <nav class="primary-nav" role="navigation" aria-label="Main Navigation">
+        <ul class="menu" role="menubar">
+          <!-- COMPANY (3-column) -->
+          <li class="menu-item mega" role="none">
+            <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span class="label">Company</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="mega-panel" role="menu" aria-label="Company">
+              <div class="mega3">
+                <!-- Left: title + short description -->
+                <div class="col intro">
+                  <h3>Company</h3>
+                  <p>Pioneering AI-powered infrastructure with a global vision.</p>
+                </div>
+
+                <!-- Middle: big links driving the preview -->
+                <div class="col links">
+                  <a class="mega-link is-active" href="about.html" data-preview-img="images/company.jpg"
+                    data-preview-title="About Us" data-preview-desc="Who we are, what we do, and how we build.">About
+                    Us</a>
+
+                  <a class="mega-link" href="team.html" data-preview-img="images/team.jpg"
+                    data-preview-title="Our people"
+                    data-preview-desc="Meet the leadership and the builders behind PivaiTech.">Our Team</a>
+
+                  <a class="mega-link" href="news.html" data-preview-img="images/conference.jpg"
+                    data-preview-title="News & Events"
+                    data-preview-desc="Discover the latest announcements and where to meet us.">News & Events</a>
+
+                  <a class="mega-link" href="careers.html" data-preview-img="images/careers.png"
+                    data-preview-title="Careers"
+                    data-preview-desc="Help us design the next decade of intelligent infrastructure.">Careers</a>
+                </div>
+
+                <!-- Right: live preview -->
+                <div class="col preview">
+                  <figure>
+                    <img src="images/company.jpg" alt="Horizon Building">
+                    <figcaption>
+                      <h4>About Us</h4>
+                      <p>Who we are, what we do, and how we build.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- PRODUCTS (3-column) -->
+          <li class="menu-item mega" role="none">
+            <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span class="label">Products</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="mega-panel" role="menu" aria-label="Products">
+              <div class="mega3">
+                <div class="col intro">
+                  <h3>Products</h3>
+                  <p>Innovative AI solutions that redefine accuracy and control.</p>
+                </div>
+
+                <div class="col links">
+                  <a class="mega-link is-active" href="products.html#main-content"
+                    data-preview-img="images/IMG_6419.jpeg" data-preview-title="RoadMap"
+                    data-preview-desc="AI-driven pavement condition assessment system.">RoadMap</a>
+
+                  <a class="mega-link" href="products.html#signmap" data-preview-img="images/sign3.png"
+                    data-preview-title="SignMap"
+                    data-preview-desc="AI-enhanced traffic sign recognition & condition analysis.">SignMap</a>
+                </div>
+
+                <div class="col preview">
+                  <figure>
+                    <img src="images/IMG_6419.jpeg" alt="">
+                    <figcaption>
+                      <h4>RoadMap</h4>
+                      <p>AI-driven pavement condition assessment system.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- SOLUTIONS (3-column) -->
+          <li class="menu-item mega" role="none">
+            <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span class="label">Solutions</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <div class="mega-panel" role="menu" aria-label="Solutions">
+              <div class="mega3">
+                <div class="col intro">
+                  <h3>Solutions</h3>
+                  <p>Tailored integrations to maximize the performance of RoadMap and SignMap.</p>
+                </div>
+
+                <div class="col links">
+                  <a class="mega-link is-active" href="solutions.html" data-preview-img="images/IMG_6419.jpeg"
+                    data-preview-title="For RoadMap"
+                    data-preview-desc="Solutions designed to enhance mapping accuracy, automation, and data reliability.">For
+                    RoadMap</a>
+
+                  <a class="mega-link" href="solutions.html" data-preview-img="images/sign3.png"
+                    data-preview-title="For SignMap"
+                    data-preview-desc="Integrations that boost visual recognition and adaptive learning for smarter road sign analysis.">For
+                    SignMap</a>
+                </div>
+
+                <div class="col preview">
+                  <figure>
+                    <img src="images/IMG_6419.jpeg" alt="">
+                    <figcaption>
+                      <h4>For RoadMap</h4>
+                      <p>Solutions designed to enhance mapping accuracy, automation, and data reliability.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- CASE STUDIES — plain link -->
+          <li class="menu-item" role="none">
+            <a class="dropdown-toggle" href="case-studies.html" role="menuitem">
+              <span class="label">Case studies</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right: Language + Contact -->
+      <div class="right-controls">
+        <div class="lang dropdown">
+          <button class="lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+            <span class="code">EN</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <ul class="lang-menu" role="menu">
+            <li role="none"><button role="menuitem" data-lang="FR">FR</button></li>
+            <li role="none"><button role="menuitem" data-lang="DE">DE</button></li>
+            <li role="none"><button role="menuitem" data-lang="ES">ES</button></li>
+            <li role="none"><button role="menuitem" data-lang="IT">IT</button></li>
+          </ul>
+        </div>
+
+        <a class="btn ghost" href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <!-- Thin divider under header -->
+    <div class="rule rule-header"></div>
+
+    <!-- Products Tagline -->
+    <div class="tagline p-tagline">
+      <div class="tagline-inner p-tagline-inner">
+        <h1 class="p-title">Products</h1>
+        <p class="p-subtitle">Advanced sensing and AI platforms for intelligent infrastructure.</p>
+      </div>
+    </div>
+
+    <!-- Thin divider under tagline -->
+    <div class="rule rule-tagline"></div>
+
+    <!-- Jump button -->
+    <div class="p-jump">
+      <a href="#main-content" class="p-jump-btn" aria-label="Skip to main products section"
+        data-scrollto="#main-content">
+        <span>Our Products</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO IMAGE (sits behind header content) -->
+  <section class="hero" aria-label="Company hero background">
+    <div class="overlay" aria-hidden="true"></div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb" data-reveal>
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <span class="current">Products</span>
+  </nav>
+
+  <main class="products-main">
+
+    <!-- ROADMAP -->
+    <section class="rmA product-card" id="main-content" data-reveal>
+      <header class="rmA__head product-card__head">
+        <p class="product-kicker">Product</p>
+        <h2>RoadMap</h2>
+        <p class="lede">AI-Driven Pavement Condition Assessment System</p>
+      </header>
+
+      <article class="rmA__split product-card__split" data-reveal>
+        <div class="rmA__text product-card__text">
+          <ul class="rmA__pills product-card__pills" aria-label="Highlights">
+            <li>Real-time</li>
+            <li>Crack &amp; pothole detection</li>
+          </ul>
+
+          <p class="rmA__copy product-card__copy">
+            RoadMap is a next-generation modular inspection and survey platform designed to modernize roadway asset
+            management. Mounted on general-purpose vehicles, it captures and analyzes pavement imagery and depth data in
+            real time to deliver accurate, actionable insights. Leveraging AI-powered defect detection and computer
+            vision,
+            RoadMap identifies cracks, potholes, and surface wear - generating instant reports (instead of raw data) for
+            faster, proactive maintenance and smarter infrastructure planning.
+          </p>
+
+          <ul class="rmA__features product-card__features">
+            <li>Onboard, real-time defect detection with precise geolocation</li>
+            <li>Automated severity estimation and actionable analytics</li>
+            <li>Integrated, compact, easy-to-mount design for scale</li>
+          </ul>
+
+          <a class="rmA__cta product-card__cta" href="contact.html">Request a demo</a>
+        </div>
+
+        <figure class="rmA__media product-card__media">
+          <div class="p-carousel" data-carousel>
+            <button class="pc-btn pc-prev" type="button" aria-label="Previous image">‹</button>
+
+            <div class="pc-viewport">
+              <div class="pc-track">
+                <img src="images/IMG_6419.jpeg" alt="RoadMap system - view 1" />
+                <img src="images/roadmap_alt1.jpg" alt="RoadMap system - view 2" />
+                <img src="images/roadmap_alt2.jpg" alt="RoadMap system - view 3" />
+              </div>
+            </div>
+
+            <button class="pc-btn pc-next" type="button" aria-label="Next image">›</button>
+
+            <div class="pc-dots" aria-label="Choose image">
+              <button type="button" class="pc-dot is-active" aria-label="Image 1"></button>
+              <button type="button" class="pc-dot" aria-label="Image 2"></button>
+              <button type="button" class="pc-dot" aria-label="Image 3"></button>
+            </div>
+          </div>
+        </figure>
+      </article>
+    </section>
+
+    <!-- SIGNMAP -->
+    <section class="smA product-card" id="signmap" data-reveal>
+      <header class="smA__head product-card__head">
+        <p class="product-kicker">Product</p>
+        <h2>SignMap</h2>
+        <p class="lede">AI-Enhanced Traffic Sign Recognition &amp; Condition Analysis</p>
+      </header>
+
+      <article class="smA__split product-card__split" data-reveal>
+        <div class="smA__text product-card__text">
+          <ul class="smA__pills product-card__pills" aria-label="Highlights">
+            <li>Vision AI</li>
+            <li>Inventory-ready</li>
+            <li>Compliance</li>
+          </ul>
+
+          <p class="smA__copy product-card__copy">
+            SignMap leverages advanced computer vision, imaging sensors, and AI to automatically identify, classify, and
+            evaluate the condition of traffic signs. With precise visibility and compliance analysis, it enables
+            data-driven asset inventory and maintenance management—supporting safer, more efficient, and well-maintained
+            roadways.
+          </p>
+
+          <ul class="smA__features product-card__features">
+            <li>Automated traffic sign recognition and condition assessment</li>
+            <li>Damage and obstruction detection for proactive maintenance</li>
+            <li>Seamless integration with GIS and maintenance systems</li>
+          </ul>
+
+          <a class="smA__cta product-card__cta" href="contact.html">Request a demo</a>
+        </div>
+
+        <figure class="smA__media product-card__media">
+          <div class="p-carousel" data-carousel>
+            <button class="pc-btn pc-prev" type="button" aria-label="Previous image">‹</button>
+
+            <div class="pc-viewport">
+              <div class="pc-track">
+                <img src="images/sign2.png" alt="SignMap system - view 1" />
+                <img src="images/sign1.png" alt="SignMap system - view 2" />
+                <img src="images/sign3.png" alt="SignMap system - view 3" />
+              </div>
+            </div>
+
+            <button class="pc-btn pc-next" type="button" aria-label="Next image">›</button>
+
+            <div class="pc-dots" aria-label="Choose image">
+              <button type="button" class="pc-dot is-active" aria-label="Image 1"></button>
+              <button type="button" class="pc-dot" aria-label="Image 2"></button>
+              <button type="button" class="pc-dot" aria-label="Image 3"></button>
+            </div>
+          </div>
+        </figure>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" data-reveal>
+    <div class="footer-top">
+      <div>
+        <h4>Subscribe</h4>
+        <p>Subscribe to our newsletter for updates.</p>
+        <a href="subscribe.html" class="btn">Subscribe</a>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="news.html">News & Events</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#main-content">RoadMap</a></li>
+          <li><a href="products.html#signmap">SignMap</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Case Studies</h4>
+        <ul>
+          <li><a href="case-studies.html">Explore Projects</a></li>
+          <li><a href="case-studies.html">Road Inspection Data</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="solutions.html">For RoadMap</a></li>
+          <li><a href="solutions.html">For SignMap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-col logo-col">
+        <a href="index.html" aria-label="PivaiTech home">
+          <img src="images/pivailogo.png" alt="PivaiTech Logo">
+        </a>
+      </div>
+
+      <div class="footer-col text-col">
+        <p>&copy; 2025 PivaiTech. All rights reserved.</p>
+      </div>
+
+      <div class="footer-col social-col" aria-label="Social links">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Carousel (page-local) -->
+  <script>
+    (function () {
+      const carousels = document.querySelectorAll('[data-carousel]');
+      if (!carousels.length) return;
+
+      carousels.forEach((carousel) => {
+        const track = carousel.querySelector('.pc-track');
+        const prevBtn = carousel.querySelector('.pc-prev');
+        const nextBtn = carousel.querySelector('.pc-next');
+        const dots = Array.from(carousel.querySelectorAll('.pc-dot'));
+        const slides = Array.from(track.querySelectorAll('img'));
+        let index = 0;
+
+        function update() {
+          track.style.transform = `translateX(-${index * 100}%)`;
+          dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+        }
+
+        prevBtn.addEventListener('click', () => {
+          index = (index - 1 + slides.length) % slides.length;
+          update();
+        });
+
+        nextBtn.addEventListener('click', () => {
+          index = (index + 1) % slides.length;
+          update();
+        });
+
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', () => {
+            index = i;
+            update();
+          });
+        });
+
+        update();
+      });
+    })();
+  </script>
+</body>
+
+</html>

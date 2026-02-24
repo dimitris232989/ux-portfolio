@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subscribe | Pivai</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="subscribe.css" />
+  <!-- optional: if your footer relies on news.css styles, keep this -->
+  <link rel="stylesheet" href="news.css" />
+</head>
+
+<body>
+  <!-- HEADER (same system so script.js still works) -->
+  <header class="site-header" role="banner">
+    <div class="header-grid" id="headerGrid">
+      <a class="brand" href="index.html" aria-label="PivaiTech home">
+        <img src="images/pivailogo.png" alt="PivaiTech logo" />
+      </a>
+
+      <nav class="primary-nav" role="navigation" aria-label="Main Navigation">
+        <ul class="menu" role="menubar">
+          <!-- COMPANY -->
+          <li class="menu-item mega" role="none">
+            <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span class="label">Company</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <div class="mega-panel" role="menu" aria-label="Company">
+              <div class="mega3">
+                <div class="col intro">
+                  <h3>Company</h3>
+                  <p>Pioneering AI-powered infrastructure with a global vision.</p>
+                </div>
+
+                <div class="col links">
+                  <a class="mega-link is-active" href="about.html" data-preview-img="images/company.png"
+                    data-preview-title="About Us" data-preview-desc="Who we are, what we do, and how we build.">About
+                    Us</a>
+
+                  <a class="mega-link" href="team.html" data-preview-img="images/team.png"
+                    data-preview-title="Our people"
+                    data-preview-desc="Meet the leadership and the builders behind PivaiTech.">Our Team</a>
+
+                  <a class="mega-link" href="news.html" data-preview-img="images/conference.png"
+                    data-preview-title="News & Events"
+                    data-preview-desc="Discover the latest announcements and where to meet us.">News & Events</a>
+
+                  <a class="mega-link" href="careers.html" data-preview-img="images/careers.png"
+                    data-preview-title="Careers"
+                    data-preview-desc="Help us design the next decade of intelligent infrastructure.">Careers</a>
+                </div>
+
+                <div class="col preview">
+                  <figure>
+                    <img src="images/company.png" alt="Horizon Building">
+                    <figcaption>
+                      <h4>About Us</h4>
+                      <p>Who we are, what we do, and how we build.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- PRODUCTS -->
+          <li class="menu-item mega" role="none">
+            <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span class="label">Products</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <div class="mega-panel" role="menu" aria-label="Products">
+              <div class="mega3">
+                <div class="col intro">
+                  <h3>Products</h3>
+                  <p>Innovative AI solutions that redefine accuracy and control.</p>
+                </div>
+
+                <div class="col links">
+                  <a class="mega-link is-active" href="roadmap.html" data-preview-img="images/Roadmap.jpeg"
+                    data-preview-title="Roadmap"
+                    data-preview-desc="Advanced AI-powered navigation and route intelligence.">Roadmap</a>
+
+                  <a class="mega-link" href="signmap.html" data-preview-img="images/sign3.png"
+                    data-preview-title="Signmap"
+                    data-preview-desc="Real-time road sign detection and classification with precision vision.">Signmap</a>
+                </div>
+
+                <div class="col preview">
+                  <figure>
+                    <img src="images/Roadmap.jpeg" alt="">
+                    <figcaption>
+                      <h4>Roadmap</h4>
+                      <p>Advanced AI-powered navigation and route intelligence.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- CASE STUDIES -->
+
+          <li class="menu-item" role="none">
+            <a class="dropdown-toggle" href="case-studies.html" role="menuitem">
+              <span class="label">Case studies</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="right-controls">
+        <div class="lang dropdown">
+          <button class="lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+            <span class="code">EN</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <ul class="lang-menu" role="menu">
+            <li role="none"><button role="menuitem" data-lang="FR">FR</button></li>
+            <li role="none"><button role="menuitem" data-lang="DE">DE</button></li>
+            <li role="none"><button role="menuitem" data-lang="ES">ES</button></li>
+            <li role="none"><button role="menuitem" data-lang="IT">IT</button></li>
+          </ul>
+        </div>
+
+        <a class="btn ghost" href="contact.html" aria-current="page">Contact</a>
+      </div>
+    </div>
+
+    <div class="rule rule-header"></div>
+    <div class="tagline c-tagline">
+      <div class="tagline-inner c-tagline-inner">
+        <h1 class="c-title">Subscribe.</h1>
+        <p class="c-subtitle">Get product updates, demos, and announcements from Pivai.</p>
+      </div>
+    </div>
+
+    <div class="rule rule-tagline"></div>
+  </header>
+
+  <section class="hero" aria-label="Subscribe hero background">
+    <div class="overlay" aria-hidden="true"></div>
+  </section>
+
+  <main id="main-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb" data-reveal>
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span class="current">Subscribe</span>
+    </nav>
+
+    <!-- Subscribe section -->
+    <section class="sb-section" data-reveal>
+      <div class="sb-container">
+        <div class="sb-grid">
+          <!-- Left: text -->
+          <div class="sb-copy">
+            <h2>Stay in the loop.</h2>
+            <p>
+              Subscribe to receive occasional updates about product demos, road inspection deployments,
+              and new releases.
+            </p>
+
+            <ul class="sb-points">
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Product announcements</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Field demo updates</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Conference &amp; event news</li>
+            </ul>
+
+            <p class="sb-alt">
+              Prefer to reach us directly? <a href="mailto:info@pivai.com">info@pivai.com</a>
+            </p>
+          </div>
+
+          <!-- Right: form -->
+          <div class="sb-form">
+            <h3>Subscribe via email</h3>
+            <p class="sb-sub">We’ll only email when there’s something worth sharing.</p>
+
+            <form id="subscribeForm" class="sb-form-el" novalidate>
+              <div class="sb-field">
+                <label for="sbEmail">Email</label>
+                <input id="sbEmail" name="email" type="email" autocomplete="email" placeholder="you@company.com"
+                  required>
+                <div class="sb-help" id="sbEmailHelp">Please enter a valid email address.</div>
+              </div>
+
+              <div class="sb-field">
+                <label for="sbName">Name (optional)</label>
+                <input id="sbName" name="name" type="text" autocomplete="name" placeholder="Your name">
+              </div>
+
+              <label class="sb-consent">
+                <input id="sbConsent" type="checkbox" required>
+                I agree to receive emails from Pivai. I can unsubscribe anytime.
+              </label>
+
+              <button type="submit" class="sb-submit">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                Subscribe
+              </button>
+
+              <p class="sb-privacy">
+                We respect your privacy. Your details are only used to send the updates you requested.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Success Toast -->
+  <div class="sb-toast" id="sbToast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <div class="sb-toast__card">
+      <div class="sb-toast__icon" aria-hidden="true">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <div class="sb-toast__content">
+        <div class="sb-toast__title">You're subscribed!</div>
+        <div class="sb-toast__text" id="sbToastText">Thanks for joining Pivai updates.</div>
+      </div>
+      <button class="sb-toast__close" type="button" aria-label="Close message">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer (keep your existing footer as-is) -->
+  <footer class="footer" data-reveal>
+    <div class="footer-top">
+      <div>
+        <h4>Subscribe</h4>
+        <p>Subscribe to our newsletter for updates.</p>
+        <a href="subscribe.html" class="btn">Subscribe</a>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="news.html">News & Events</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="roadmap.html">RoadMap</a></li>
+          <li><a href="signmap.html">SignMap</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Case Studies</h4>
+        <ul>
+          <li><a href="case-studies.html">Explore Projects</a></li>
+          <li><a href="case-studies.html">Road Inspection Data</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-col logo-col">
+        <a href="index.html" aria-label="PivaiTech home">
+          <img src="images/pivailogo.png" alt="PivaiTech Logo">
+        </a>
+      </div>
+
+      <div class="footer-col text-col">
+        <p>&copy; 2025 Pivai. All rights reserved.</p>
+      </div>
+
+      <div class="footer-col social-col" aria-label="Social links">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Subscribe (front-end demo)
+    const form = document.getElementById('subscribeForm');
+    const email = document.getElementById('sbEmail');
+    const consent = document.getElementById('sbConsent');
+    const emailHelp = document.getElementById('sbEmailHelp');
+
+    const toast = document.getElementById('sbToast');
+    const toastText = document.getElementById('sbToastText');
+    const toastClose = toast.querySelector('.sb-toast__close');
+
+    let toastTimer = null;
+
+    function isValidEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || '').trim());
+    }
+
+    function showToast(message) {
+      toastText.textContent = message;
+      toast.hidden = false;
+      toast.classList.remove('is-hide');
+      toast.classList.add('is-show');
+
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => hideToast(), 4500);
+    }
+
+    function hideToast() {
+      toast.classList.remove('is-show');
+      toast.classList.add('is-hide');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = null;
+
+      // wait for animation then hide
+      setTimeout(() => { toast.hidden = true; }, 220);
+    }
+
+    toastClose.addEventListener('click', hideToast);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // basic validation UI
+      const em = email.value.trim();
+      const okEmail = isValidEmail(em);
+      const okConsent = consent.checked;
+
+      form.classList.remove('has-error');
+      email.classList.remove('is-invalid');
+      emailHelp.style.display = 'none';
+
+      if (!okEmail) {
+        form.classList.add('has-error');
+        email.classList.add('is-invalid');
+        emailHelp.style.display = 'block';
+        email.focus();
+        return;
+      }
+
+      if (!okConsent) {
+        showToast("Please confirm consent to receive emails.");
+        consent.focus();
+        return;
+      }
+
+      // success (no backend yet)
+      form.reset();
+      showToast(`Thanks! ${em} is subscribed to PivaiTech updates.`);
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

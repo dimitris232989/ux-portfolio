@@ -1,0 +1,329 @@
+/* =========================================================
+   PivaiTech — Products Page (Refined / Premium)
+   - Matches RoadMap + SignMap as consistent "product cards"
+   - Global reveal support for script.js (.in-view)
+   - Cleaner typography + spacing
+   ========================================================= */
+
+:root{
+  --p-container: var(--container, 1280px);
+  --p-radius: 18px;
+  --p-border: rgba(12,26,42,.10);
+  --p-ink: #0c1a2a;
+  --p-ink-2: #1a2d44;
+  --p-muted: #3b4a5e;
+  --p-surface: #ffffff;
+  --p-surface-2: #f7f8fb;
+  --p-shadow: 0 22px 60px rgba(0,0,0,.08);
+  --p-shadow-sm: 0 14px 40px rgba(0,0,0,.06);
+  --p-accent: #c62828;
+}
+
+/* =========================================================
+   Reveal (global for this page)
+   ========================================================= */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .7s ease, transform .7s ease;
+  will-change: opacity, transform;
+}
+.in-view{
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Header tagline + jump (moved here so we don't need contact.css)
+   ========================================================= */
+.p-tagline{
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 2.25rem 1rem;
+}
+.p-title{ margin: 0; }
+.p-subtitle{
+  margin: .55rem 0 0;
+  max-width: 60ch;
+}
+
+.p-jump{
+  display: flex;
+  justify-content: center;
+  padding: 3.25rem 0 5.5rem;
+}
+.p-jump-btn{
+  position: relative;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 1.05rem;
+  color: #fff;
+  text-decoration: none;
+}
+.p-jump-btn::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-6px;
+  width:60%;
+  height:1.5px;
+  background: currentColor;
+  transform: translateX(-50%);
+  transition: width .3s ease;
+}
+.p-jump-btn:hover{ color: var(--p-accent); }
+.p-jump-btn:hover::after{ width: 100%; }
+
+/* =========================================================
+   Main spacing
+   ========================================================= */
+.products-main{
+  padding-bottom: 70px;
+}
+
+/* =========================================================
+   Product Card Shell (applies to rmA + smA)
+   ========================================================= */
+.product-card{
+  max-width: var(--p-container);
+  margin: 72px auto;
+  padding: 34px 28px;
+  background: var(--p-surface);
+  border: 1px solid var(--p-border);
+  border-radius: var(--p-radius);
+  box-shadow: var(--p-shadow-sm);
+}
+
+@media (max-width: 720px){
+  .product-card{
+    padding: 26px 18px;
+    margin: 52px auto;
+  }
+}
+
+/* Optional subtle alternate background for second card */
+.smA.product-card{
+  background: linear-gradient(180deg, #ffffff 0%, var(--p-surface-2) 100%);
+}
+
+/* =========================================================
+   Product Header
+   ========================================================= */
+.product-card__head{
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.product-kicker{
+  margin: 0 0 8px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  color: rgba(12,26,42,.55);
+}
+
+.product-card__head h2{
+  margin: 0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(28px, 3.6vw, 42px);
+  color: var(--p-ink);
+  letter-spacing: -0.01em;
+}
+
+.product-card__head .lede{
+  margin: 10px auto 0;
+  max-width: 820px;
+  font-weight: 600;
+  color: rgba(12,26,42,.72);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   Split layout
+   ========================================================= */
+.product-card__split{
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+@media (max-width: 980px){
+  .product-card__split{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* =========================================================
+   Text styles
+   ========================================================= */
+.product-card__text{
+  display: grid;
+  gap: 14px;
+}
+
+.product-card__pills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.product-card__pills li{
+  font-weight: 700;
+  font-size: .82rem;
+  color: var(--p-ink);
+  padding: 7px 11px;
+  border: 1px solid rgba(12,26,42,.12);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.product-card__copy{
+  margin: 0;
+  color: var(--p-ink-2);
+  line-height: 1.78;
+}
+
+.product-card__features{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--p-muted);
+}
+.product-card__features li{
+  margin: 6px 0;
+}
+
+/* CTA as a clean “pill button” */
+.product-card__cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--p-ink);
+  border: 1px solid rgba(12,26,42,.18);
+  background: #fff;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+.product-card__cta:hover{
+  transform: translateY(-1px);
+  border-color: rgba(12,26,42,.28);
+  box-shadow: 0 12px 28px rgba(0,0,0,.10);
+  color: var(--p-accent);
+}
+
+/* =========================================================
+   Media frame + carousel styling
+   ========================================================= */
+.product-card__media{
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(12,26,42,.10);
+  box-shadow: var(--p-shadow);
+  background: #ffffff;
+  aspect-ratio: 16 / 10;
+}
+
+@media (max-width: 980px){
+  .product-card__media{
+    aspect-ratio: 16 / 11;
+  }
+}
+
+/* carousel layout */
+.p-carousel{ position: relative; width: 100%; height: 100%; }
+.pc-viewport{ width: 100%; height: 100%; overflow: hidden; }
+.pc-track{
+  display: flex;
+  height: 100%;
+  transition: transform 280ms ease;
+  will-change: transform;
+}
+.pc-track img{
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* keep your products fully visible */
+  display: block;
+  background: #fff;
+}
+
+/* arrows */
+.pc-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(12,26,42,.16);
+  background: rgba(255,255,255,.92);
+  cursor: pointer;
+  z-index: 2;
+  line-height: 1;
+  font-size: 22px;
+  color: rgba(12,26,42,.85);
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+  transition: transform .15s ease, background .15s ease;
+}
+.pc-btn:hover{
+  background: #fff;
+  transform: translateY(-50%) scale(1.03);
+}
+.pc-prev{ left: 12px; }
+.pc-next{ right: 12px; }
+
+/* dots */
+.pc-dots{
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.pc-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: rgba(12,26,42,.26);
+  transition: width .2s ease, background .2s ease;
+}
+.pc-dot.is-active{
+  width: 26px;
+  background: rgba(12,26,42,.78);
+}
+
+/* =========================================================
+   Keep original class hooks (no breakage)
+   ========================================================= */
+/* These are here so your existing rmA/smA structure stays valid */
+.rmA__head .underline,
+.smA__head .underline{
+  display: none; /* cleaner header – we use kicker + spacing now */
+}
+
+/* No separate max-width on media; the card handles it */
+.rmA__media, .smA__media{
+  max-width: 100%;
+  margin-left: 0;
+}

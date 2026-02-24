@@ -1,0 +1,408 @@
+/* =========================================================
+   Solutions — RoadMap (Premium / Minimal, matches product pages)
+   + Includes RoadMap-style carousel component
+   ========================================================= */
+
+:root {
+  --sr-container: var(--container, 1180px);
+
+  --sr-ink: #0c1a2a;
+  --sr-muted: rgba(12, 26, 42, .70);
+  --sr-soft: rgba(12, 26, 42, .10);
+
+  --sr-accent: #c62828;
+
+  --sr-shadow: 0 18px 60px rgba(0, 0, 0, .10);
+}
+
+/* Container */
+.sr-container {
+  max-width: var(--sr-container);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+@media (max-width: 980px) {
+  .sr-container {
+    padding: 0 18px;
+  }
+}
+
+/* =========================================================
+   Premium page header (inside site header area)
+   ========================================================= */
+
+.sr-top {
+  padding: 2.1rem 0 2.0rem;
+  text-align: center;
+}
+
+.sr-eyebrow {
+  margin: 0 0 .55rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: .78rem;
+  color: rgba(255, 255, 255, .75);
+}
+
+.sr-title {
+  margin: 0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.sr-subtitle {
+  margin: .65rem auto 0;
+  max-width: 66ch;
+  color: rgba(255, 255, 255, .80);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* =========================================================
+   Background polish
+   ========================================================= */
+
+.sr-hero-bg {
+  position: relative;
+}
+
+.sr-bg-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sr-bg-orbs span {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, rgba(198, 40, 40, .35), transparent 60%);
+  filter: blur(18px);
+  opacity: .55;
+}
+
+.sr-bg-orbs span:nth-child(1) {
+  left: -140px;
+  top: -160px;
+}
+
+.sr-bg-orbs span:nth-child(2) {
+  right: -200px;
+  top: 120px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .18), transparent 60%);
+}
+
+.sr-bg-orbs span:nth-child(3) {
+  left: 18%;
+  bottom: -260px;
+  width: 640px;
+  height: 640px;
+  opacity: .35;
+}
+
+/* =========================================================
+   Main layout
+   ========================================================= */
+
+.sr-main {
+  padding: 26px 0 40px;
+}
+
+.sr-hero__grid {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  gap: 24px;
+  align-items: start;
+  padding-top: 18px;
+}
+
+@media (max-width: 980px) {
+  .sr-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Copy */
+.sr-kicker {
+  margin: 0 0 12px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  color: rgba(12, 26, 42, .55);
+}
+
+.sr-h2 {
+  margin: 0 0 10px;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 22px;
+  color: rgba(12, 26, 42, .92);
+}
+
+.sr-lede {
+  margin: 0;
+  color: rgba(12, 26, 42, .78);
+  line-height: 1.85;
+  font-size: 15.4px;
+  max-width: 74ch;
+}
+
+/* Divider */
+.sr-divider {
+  margin: 18px 0 16px;
+  height: 1px;
+  background: rgba(12, 26, 42, .10);
+}
+
+/* Bullets */
+.sr-bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  max-width: 74ch;
+}
+
+.sr-bullets li {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: 12px;
+  align-items: start;
+  color: var(--sr-muted);
+  line-height: 1.75;
+}
+
+.sr-bullets li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  margin-top: 9px;
+  background: rgba(12, 26, 42, .72);
+}
+
+/* Actions */
+.sr-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+/* Buttons */
+.sr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  color: var(--sr-ink);
+  background: #fff;
+  border: 1px solid rgba(12, 26, 42, .18);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.sr-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .10);
+  border-color: rgba(12, 26, 42, .28);
+  color: var(--sr-accent);
+}
+
+.sr-btn.ghost {
+  background: transparent;
+}
+
+/* Media */
+.sr-hero__media {
+  margin: 0;
+}
+
+.sr-media-caption {
+  margin-top: 10px;
+  color: rgba(12, 26, 42, .62);
+  font-size: .95rem;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   ✅ Carousel (same component as roadmap.css)
+   ========================================================= */
+
+.p-carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--sr-shadow);
+  border: 1px solid rgba(12, 26, 42, .10);
+}
+
+.pc-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pc-track {
+  display: flex;
+  height: 100%;
+  transition: transform 280ms ease;
+  will-change: transform;
+}
+
+.pc-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #fff;
+}
+
+.pc-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  background: rgba(12, 26, 42, .35);
+  color: rgba(255, 255, 255, .92);
+  cursor: pointer;
+  z-index: 2;
+  line-height: 1;
+  font-size: 20px;
+  backdrop-filter: blur(10px);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.pc-btn:hover {
+  transform: translateY(-50%) scale(1.04);
+  background: rgba(12, 26, 42, .45);
+  border-color: rgba(255, 255, 255, .45);
+}
+
+.pc-prev {
+  left: 14px;
+}
+
+.pc-next {
+  right: 14px;
+}
+
+.pc-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pc-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, .45);
+  transition: width .2s ease, background .2s ease;
+}
+
+.pc-dot.is-active {
+  width: 26px;
+  background: rgba(255, 255, 255, .90);
+}
+
+/* =========================================================
+   Bottom CTA
+   ========================================================= */
+
+.sr-bottom-cta {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(12, 26, 42, .08);
+  padding-bottom: 90px;
+}
+
+.sr-bottom-cta__inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sr-bottom-cta__inner p {
+  margin: 0;
+  color: rgba(12, 26, 42, .70);
+}
+
+.sr-link {
+  text-decoration: none;
+  font-weight: 800;
+  color: rgba(12, 26, 42, .90);
+  border-bottom: 1px solid rgba(12, 26, 42, .22);
+  padding-bottom: 2px;
+  transition: color .15s ease, border-color .15s ease;
+}
+
+.sr-link:hover {
+  color: var(--sr-accent);
+  border-color: rgba(198, 40, 40, .45);
+}
+
+@media (max-width: 720px) {
+  .sr-bottom-cta__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   Reveal (compatible with your script.js)
+   ========================================================= */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+[data-reveal].in-view,
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .sr-btn,
+  .sr-link,
+  .pc-btn {
+    transition: none;
+  }
+}

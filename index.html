@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home | Pivai</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="preload" href="assets/office.jpg" as="image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-grid" id="headerGrid">
+      <a class="brand" href="index.html" aria-label="PivaiTech home">
+        <img src="images/pivailogo.png" alt="PivaiTech logo" />
+      </a>
+
+      <nav class="primary-nav" role="navigation" aria-label="Main Navigation">
+        <ul class="menu" role="menubar">
+          <li class="menu-item mega" role="none">
+            <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span class="label">Company</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <div class="mega-panel" role="menu" aria-label="Company">
+              <div class="mega3">
+                <div class="col intro">
+                  <h3>Company</h3>
+                  <p>Pioneering AI-powered infrastructure with a global vision.</p>
+                </div>
+
+                <div class="col links">
+                  <a class="mega-link is-active" href="about.html" data-preview-img="images/company.png"
+                    data-preview-title="About Us" data-preview-desc="Who we are, what we do, and how we build.">About
+                    Us</a>
+
+                  <a class="mega-link" href="team.html" data-preview-img="images/team.png"
+                    data-preview-title="Our people"
+                    data-preview-desc="Meet the leadership and the builders behind PivaiTech.">Our Team</a>
+
+                  <a class="mega-link" href="news.html" data-preview-img="images/conference.png"
+                    data-preview-title="News & Events"
+                    data-preview-desc="Discover the latest announcements and where to meet us.">News & Events</a>
+
+                  <a class="mega-link" href="careers.html" data-preview-img="images/careers.png"
+                    data-preview-title="Careers"
+                    data-preview-desc="Help us design the next decade of intelligent infrastructure.">Careers</a>
+                </div>
+
+                <div class="col preview">
+                  <figure>
+                    <img src="images/company.png" alt="Horizon Building">
+                    <figcaption>
+                      <h4>About Us</h4>
+                      <p>Who we are, what we do, and how we build.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="menu-item mega" role="none">
+            <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span class="label">Products</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <div class="mega-panel" role="menu" aria-label="Products">
+              <div class="mega3">
+                <div class="col intro">
+                  <h3>Products</h3>
+                  <p>Innovative AI solutions that redefine accuracy and control.</p>
+                </div>
+
+                <div class="col links">
+                  <a class="mega-link is-active" href="roadmap.html" data-preview-img="images/Roadmap.jpeg"
+                    data-preview-title="Roadmap"
+                    data-preview-desc="Advanced AI-powered navigation and route intelligence.">Roadmap</a>
+
+                  <a class="mega-link" href="signmap.html" data-preview-img="images/sign3.png"
+                    data-preview-title="Signmap"
+                    data-preview-desc="Real-time road sign detection and classification with precision vision.">Signmap</a>
+                </div>
+
+                <div class="col preview">
+                  <figure>
+                    <img src="images/Roadmap.jpeg" alt="">
+                    <figcaption>
+                      <h4>Roadmap</h4>
+                      <p>Advanced AI-powered navigation and route intelligence.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="menu-item" role="none">
+            <a class="dropdown-toggle" href="case-studies.html" role="menuitem">
+              <span class="label">Case studies</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="right-controls">
+        <div class="lang dropdown">
+          <button class="lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+            <span class="code">EN</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <ul class="lang-menu" role="menu">
+            <li role="none"><button role="menuitem" data-lang="FR">FR</button></li>
+            <li role="none"><button role="menuitem" data-lang="DE">DE</button></li>
+            <li role="none"><button role="menuitem" data-lang="ES">ES</button></li>
+            <li role="none"><button role="menuitem" data-lang="IT">IT</button></li>
+          </ul>
+        </div>
+
+        <a class="btn ghost" href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="rule rule-header"></div>
+
+    <div class="tagline c-tagline">
+      <div class="tagline-inner c-tagline-inner">
+        <h1 class="c-title">Powering the Future.</h1>
+        <p class="c-subtitle">Perception of Infrastructures through Visual AI - PIVAI.</p>
+      </div>
+    </div>
+
+    <div class="rule rule-tagline"></div>
+
+    <div class="cta-row">
+      <a class="cta solid" href="roadmap.html">Explore Our Technology</a>
+      <a class="cta outline" href="team.html">Meet Our Team</a>
+      <a class="cta ghost-cta" href="case-studies.html">See it in Action</a>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Company hero background">
+    <div class="overlay" aria-hidden="true"></div>
+  </section>
+
+  <main>
+    <section id="about" class="about-section" aria-labelledby="about-heading" data-reveal>
+      <header>
+        <h2 id="about-heading">About Pivai</h2>
+        <p>
+          PIVAI pioneers advancements in real-time visual AI for infrastructure safety and sustainability.
+          Through our patented intelligent inspection and monitoring systems,
+          we deliver a new paradigm in anomaly detection, asset management,
+          and quantitative analysis. Our technology enables proactive decision-making,
+          rapid resilience, and long-term reliability across critical infrastructure and environmental systems.
+        </p>
+      </header>
+      <a href="about.html" class="about-link">Learn More</a>
+    </section>
+
+    <section class="products-band" aria-labelledby="products-heading" data-reveal>
+      <div class="products-head">
+        <h2 id="products-heading">Our products</h2>
+        <p>Resilient, intelligent, and sustainable infrastructures through real-time visual AI.</p>
+
+        <div class="products-grid" data-reveal-stagger>
+          <a class="prod-card" href="roadmap.html" aria-labelledby="prod-roadmap-title">
+            <img src="images/Roadmap.jpeg" alt="RoadMap pavement assessment system" class="prod-img" />
+            <div class="prod-shade"></div>
+            <div class="prod-copy">
+              <h3 id="prod-roadmap-title" class="prod-title">RoadMap</h3>
+              <p class="prod-desc">Portable pavement assessment with real-time defect mapping & analytics.</p>
+            </div>
+          </a>
+
+          <a class="prod-card" href="signmap.html" aria-labelledby="prod-signmap-title">
+            <img src="images/sign1.png" alt="SignMap automated traffic sign inspection" class="prod-img" />
+            <div class="prod-shade"></div>
+            <div class="prod-copy">
+              <h3 id="prod-signmap-title" class="prod-title">SignMap</h3>
+              <p class="prod-desc">Automated sign detection, condition checks, and compliance tracking.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" class="solutions-section" aria-labelledby="solutions-heading" data-reveal>
+      <header class="solutions-header">
+        <h2 id="solutions-heading">Solutions</h2>
+        <p class="solutions-lede">Empowering smarter, safer infrastructure through AI-driven innovation.</p>
+      </header>
+
+      <div class="solutions-grid" data-reveal-stagger>
+        <div class="solution">
+          <h3>For RoadMap</h3>
+          <p>Empower DOTs and cities with real-time insights for pavement health, reducing risks and repair costs
+            through predictive analytics.</p>
+          <a href="roadmap.html#roadmap-solutions" class="solution-btn">Learn More</a>
+        </div>
+
+        <div class="solution">
+          <h3>For SignMap</h3>
+          <p>Enable smarter, safer signage management with automated inspection workflows and data-driven compliance
+            tracking.</p>
+          <a href="signmap.html#signmap-solutions" class="solution-btn">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners" class="partners-band" aria-labelledby="partners-heading" data-reveal>
+      <div class="partners-inner">
+        <header class="partners-header">
+          <h2 id="partners-heading" class="partners-title">Partners</h2>
+          <p class="partners-copy">
+            PIVAI proudly partners with the South Carolina Research Authority (SCRA) to accelerate
+            commercialization, create jobs, and deliver impactful technology from the University of
+            South Carolina to the marketplace.
+          </p>
+        </header>
+
+        <div class="logo-marquee" aria-label="Partner organizations">
+          <ul class="logo-track">
+            <li class="partner"><img src="images/transport.png" alt="U.S. Department of Transportation"></li>
+            <li class="partner"><img src="images/SCRA.png" alt="South Carolina Research Authority (SCRA)"></li>
+            <li class="partner"><img src="images/usc.png" alt="University of South Carolina"></li>
+            <li class="partner"><img src="images/SCDOT.jpeg" alt="South Carolina Department of Transportation"></li>
+
+            <li class="partner"><img src="images/DOT.png" alt="U.S. Department of Transportation" aria-hidden="true">
+            </li>
+            <li class="partner"><img src="images/SCRA.png" alt="South Carolina Research Authority (SCRA)"
+                aria-hidden="true"></li>
+            <li class="partner"><img src="images/usc.png" alt="University of South Carolina" aria-hidden="true"></li>
+            <li class="partner"><img src="images/SCDOT.jpeg" alt="South Carolina Department of Transportation"
+                aria-hidden="true"></li>
+
+            <li class="partner"><img src="images/DOT.png" alt="U.S. Department of Transportation" aria-hidden="true">
+            </li>
+            <li class="partner"><img src="images/SCRA.png" alt="South Carolina Research Authority (SCRA)"
+                aria-hidden="true"></li>
+            <li class="partner"><img src="images/usc.png" alt="University of South Carolina" aria-hidden="true"></li>
+            <li class="partner"><img src="images/SCDOT.jpeg" alt="South Carolina Department of Transportation"
+                aria-hidden="true"></li>
+
+            <li class="partner"><img src="images/DOT.png" alt="U.S. Department of Transportation" aria-hidden="true">
+            </li>
+            <li class="partner"><img src="images/SCRA.png" alt="South Carolina Research Authority (SCRA)"
+                aria-hidden="true"></li>
+            <li class="partner"><img src="images/usc.png" alt="University of South Carolina" aria-hidden="true"></li>
+            <li class="partner"><img src="images/SCDOT.jpeg" alt="South Carolina Department of Transportation"
+                aria-hidden="true"></li>
+
+            <li class="partner"><img src="images/DOT.png" alt="U.S. Department of Transportation" aria-hidden="true">
+            </li>
+            <li class="partner"><img src="images/SCRA.png" alt="South Carolina Research Authority (SCRA)"
+                aria-hidden="true"></li>
+            <li class="partner"><img src="images/usc.png" alt="University of South Carolina" aria-hidden="true"></li>
+            <li class="partner"><img src="images/SCDOT.jpeg" alt="South Carolina Department of Transportation"
+                aria-hidden="true"></li>
+
+            <li class="partner"><img src="images/DOT.png" alt="U.S. Department of Transportation" aria-hidden="true">
+            </li>
+            <li class="partner"><img src="images/SCRA.png" alt="South Carolina Research Authority (SCRA)"
+                aria-hidden="true"></li>
+            <li class="partner"><img src="images/usc.png" alt="University of South Carolina" aria-hidden="true"></li>
+            <li class="partner"><img src="images/SCDOT.jpeg" alt="South Carolina Department of Transportation"
+                aria-hidden="true"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-case" aria-labelledby="feat-case-heading" data-reveal>
+      <div class="featured-case__grid">
+        <div class="featured-case__panel">
+          <h2 id="feat-case-heading" class="featured-case__title">Explore Pivai's Case Studies</h2>
+          <p class="featured-case__desc">
+            Explore our growing collection of road inspection datasets and field demonstrations.
+            Interactive maps and downloadable data samples coming soon.
+          </p>
+
+          <a href="case-studies.html" class="featured-case__cta" aria-label="Read the full case study">
+            <span>View Our Case Studies</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h12m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <figure class="featured-case__media">
+          <img src="images/columbia.jpg" alt="Raleigh skyline and road network" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section id="latest-news" class="latest-news" aria-labelledby="latest-news-heading" data-reveal>
+      <div class="container">
+        <h2 id="latest-news-heading">Latest News & Events</h2>
+
+        <div class="news-grid" data-reveal-stagger>
+          <article class="news-card">
+            <img src="images/conference.png" alt="SCDOT demonstration">
+            <div class="news-content">
+              <h3>Demonstrations with SCDOT</h3>
+              <p>Field demonstrations across South Carolina highlighting AI-powered roadway inspection.</p>
+              <span class="news-date">March 2025</span>
+              <a href="news.html" class="arrow-btn">Read more →</a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <img src="images/conference.png" alt="Conference presentation">
+            <div class="news-content">
+              <h3>Conference Presentations</h3>
+              <p>Join us at upcoming transportation and infrastructure innovation events.</p>
+              <span class="news-date">TBA</span>
+              <a href="news.html" class="arrow-btn">Read more →</a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <img src="images/careers.png" alt="Partnership announcement">
+            <div class="news-content">
+              <h3>New Partnership Initiatives</h3>
+              <p>Collaborating with universities and industry to enhance smart mobility research.</p>
+              <span class="news-date">2025</span>
+              <a href="news.html" class="arrow-btn">Read more →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="news-footer">
+          <a href="news.html" class="see-all">See all news and events →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="get-in-touch" data-reveal>
+      <div class="get-in-touch__inner">
+        <h2>Let’s Get in Touch</h2>
+        <p>
+          Have questions or want to explore collaboration opportunities?
+          We’d love to hear from you - let’s make smarter, safer, and more efficient
+          transportation together.
+        </p>
+        <a href="contact.html" class="btn-ghost">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (keep your existing footer as-is) -->
+  <footer class="footer" data-reveal>
+    <div class="footer-top">
+      <div>
+        <h4>Subscribe</h4>
+        <p>Subscribe to our newsletter for updates.</p>
+        <a href="subscribe.html" class="btn">Subscribe</a>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="news.html">News & Events</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="roadmap.html">RoadMap</a></li>
+          <li><a href="signmap.html">SignMap</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Case Studies</h4>
+        <ul>
+          <li><a href="case-studies.html">Explore Projects</a></li>
+          <li><a href="case-studies.html">Road Inspection Data</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-col logo-col">
+        <a href="index.html" aria-label="PivaiTech home">
+          <img src="images/pivailogo.png" alt="PivaiTech Logo">
+        </a>
+      </div>
+
+      <div class="footer-col text-col">
+        <p>&copy; 2025 Pivai. All rights reserved.</p>
+      </div>
+
+      <div class="footer-col social-col" aria-label="Social links">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

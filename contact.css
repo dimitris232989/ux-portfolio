@@ -1,0 +1,352 @@
+/* =========================================================
+   Contact Page (No card) — premium, clean, real-world layout
+   Two columns with subtle separators and calm hierarchy
+========================================================= */
+
+:root {
+  --ct-container: var(--container, 1180px);
+
+  --ct-ink: #0c1a2a;
+  --ct-muted: rgba(12, 26, 42, .72);
+  --ct-soft: rgba(12, 26, 42, .10);
+
+  --ct-accent: #c62828;
+
+  --ct-radius: 18px;
+  --ct-shadow: 0 22px 70px rgba(0, 0, 0, .10);
+}
+
+/* Hero eyebrow */
+.ct-eyebrow {
+  margin: 0 0 .55rem;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: .78rem;
+  color: rgba(255, 255, 255, .72);
+}
+
+/* =========================================================
+   Full-bleed section (no card)
+========================================================= */
+
+.ct-section {
+  padding: 82px 0 96px;
+  position: relative;
+}
+
+.ct-container {
+  max-width: var(--ct-container);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+@media (max-width: 980px) {
+  .ct-section {
+    padding: 68px 0 84px;
+  }
+
+  .ct-container {
+    padding: 0 18px;
+  }
+}
+
+/* Subtle “surface” without being a card:
+   a faint background wash behind the content */
+.ct-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, .00) 0%,
+      rgba(255, 255, 255, .50) 18%,
+      rgba(255, 255, 255, .82) 55%,
+      rgba(255, 255, 255, .00) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ct-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   Top header (simple and intentional)
+========================================================= */
+
+.ct-head {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.ct-kicker {
+  margin: 0 0 8px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .75rem;
+  color: rgba(12, 26, 42, .55);
+}
+
+.ct-title {
+  margin: 0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: rgba(12, 26, 42, .94);
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.05;
+}
+
+.ct-lede {
+  margin: 10px auto 0;
+  max-width: 72ch;
+  color: var(--ct-muted);
+  line-height: 1.7;
+}
+
+/* =========================================================
+   Grid layout
+========================================================= */
+
+.ct-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(18px, 3vw, 46px);
+  align-items: start;
+
+  /* subtle “real world” structure: top border line */
+  padding-top: 26px;
+  border-top: 1px solid rgba(12, 26, 42, .10);
+}
+
+@media (max-width: 960px) {
+  .ct-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   Left info column
+========================================================= */
+
+.ct-info h3 {
+  margin: 0 0 14px;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgba(12, 26, 42, .92);
+  font-size: 1.15rem;
+}
+
+.ct-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.ct-list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(12, 26, 42, .08);
+}
+
+.ct-list li:last-child {
+  border-bottom: none;
+}
+
+.ct-list i {
+  color: var(--ct-accent);
+  font-size: 18px;
+  transform: translateY(2px);
+}
+
+.ct-label {
+  font-weight: 900;
+  color: rgba(12, 26, 42, .82);
+  font-size: .92rem;
+  margin-bottom: 4px;
+}
+
+.ct-link {
+  font-weight: 800;
+  color: rgba(12, 26, 42, .92);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(12, 26, 42, .25);
+  padding-bottom: 1px;
+}
+
+.ct-link:hover {
+  color: var(--ct-accent);
+  border-bottom-color: rgba(198, 40, 40, .45);
+}
+
+.ct-address {
+  font-style: normal;
+  line-height: 1.6;
+  color: rgba(12, 26, 42, .76);
+}
+
+.ct-text {
+  color: rgba(12, 26, 42, .76);
+}
+
+
+/* =========================================================
+   Right form column
+========================================================= */
+
+.ct-form h3 {
+  margin: 0 0 6px;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgba(12, 26, 42, .92);
+  font-size: 1.18rem;
+}
+
+.ct-form-sub {
+  margin: 0 0 18px;
+  color: rgba(12, 26, 42, .72);
+  line-height: 1.65;
+}
+
+.ct-form-el {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* two fields row */
+.ct-row {
+  display: flex;
+  gap: 14px;
+}
+
+@media (max-width: 640px) {
+  .ct-row {
+    flex-direction: column;
+  }
+}
+
+.ct-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.ct-field label {
+  font-size: .92rem;
+  color: rgba(12, 26, 42, .86);
+  font-weight: 800;
+}
+
+.ct-field input,
+.ct-field textarea {
+  padding: 12px 12px;
+  border: 1px solid rgba(12, 26, 42, .16);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .75);
+  font: inherit;
+  color: var(--ct-ink);
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.ct-field textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.ct-field input:focus,
+.ct-field textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: rgba(198, 40, 40, .55);
+  box-shadow: 0 0 0 4px rgba(198, 40, 40, .10);
+}
+
+/* footer under form */
+.ct-footer {
+  padding-top: 10px;
+  border-top: 1px solid rgba(12, 26, 42, .10);
+}
+
+.ct-consent {
+  font-size: .92rem;
+  color: rgba(12, 26, 42, .72);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0 0 14px;
+}
+
+.ct-consent input {
+  margin-top: 3px;
+}
+
+.ct-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ct-submit {
+  background: var(--ct-accent);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 18px;
+  cursor: pointer;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 12px 28px rgba(198, 40, 40, .18);
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.ct-submit:hover {
+  background: #a61e1e;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(198, 40, 40, .22);
+}
+
+.ct-alt {
+  color: rgba(12, 26, 42, .72);
+  font-size: .95rem;
+}
+
+/* =========================================================
+   Reveal support
+========================================================= */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .8s ease, transform .8s ease;
+  will-change: opacity, transform;
+}
+
+[data-reveal].in-view,
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

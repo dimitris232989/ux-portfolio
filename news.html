@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>News | Pivai</title>
+    <!-- OceanX-like look: geometric/clean -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preload" href="assets/office.jpg" as="image" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="news.css" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header" role="banner">
+        <div class="header-grid" id="headerGrid">
+            <!-- Logo -->
+            <a class="brand" href="index.html" aria-label="PivaiTech home">
+                <img src="images/pivailogo.png" alt="PivaiTech logo" />
+            </a>
+
+            <!-- NAV (click-to-open) -->
+            <nav class="primary-nav" role="navigation" aria-label="Main Navigation">
+                <ul class="menu" role="menubar">
+                    <!-- COMPANY (3-column) -->
+                    <li class="menu-item mega" role="none">
+                        <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            <span class="label">Company</span>
+                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="mega-panel" role="menu" aria-label="Company">
+                            <div class="mega3">
+                                <!-- Left: title + short description -->
+                                <div class="col intro">
+                                    <h3>Company</h3>
+                                    <p>Pioneering AI-powered infrastructure with a global vision.</p>
+                                </div>
+
+                                <!-- Middle: big links driving the preview -->
+                                <div class="col links">
+                                    <a class="mega-link is-active" href="about.html"
+                                        data-preview-img="images/company.png" data-preview-title="About Us"
+                                        data-preview-desc="Who we are, what we do, and how we build.">About
+                                        Us</a>
+
+                                    <a class="mega-link" href="team.html" data-preview-img="images/team.png"
+                                        data-preview-title="Our people"
+                                        data-preview-desc="Meet the leadership and the builders behind PivaiTech.">Our
+                                        Team</a>
+
+                                    <a class="mega-link" href="news.html" data-preview-img="images/conference.png"
+                                        data-preview-title="News & Events"
+                                        data-preview-desc="Discover the latest announcements and where to meet us.">News
+                                        & Events</a>
+
+                                    <a class="mega-link" href="careers.html" data-preview-img="images/careers.png"
+                                        data-preview-title="Careers"
+                                        data-preview-desc="Help us design the next decade of intelligent infrastructure.">Careers</a>
+                                </div>
+
+                                <!-- Right: live preview -->
+                                <div class="col preview">
+                                    <figure>
+                                        <img src="images/company.png" alt="Horizon Building">
+                                        <figcaption>
+                                            <h4>About Us</h4>
+                                            <p>Who we are, what we do, and how we build.</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- PRODUCTS (3-column) -->
+                    <li class="menu-item mega" role="none">
+                        <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            <span class="label">Products</span>
+                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="mega-panel" role="menu" aria-label="Products">
+                            <div class="mega3">
+                                <div class="col intro">
+                                    <h3>Products</h3>
+                                    <p>Innovative AI solutions that redefine accuracy and control.</p>
+                                </div>
+
+                                <div class="col links">
+                                    <a class="mega-link is-active" href="roadmap.html"
+                                        data-preview-img="images/Roadmap.jpeg" data-preview-title="Roadmap"
+                                        data-preview-desc="Advanced AI-powered navigation and route intelligence.">Roadmap</a>
+
+                                    <a class="mega-link" href="signmap.html" data-preview-img="images/sign3.png"
+                                        data-preview-title="Signmap"
+                                        data-preview-desc="Real-time road sign detection and classification with precision vision.">Signmap</a>
+                                </div>
+
+                                <div class="col preview">
+                                    <figure>
+                                        <img src="images/Roadmap.jpeg" alt="">
+                                        <figcaption>
+                                            <h4>Roadmap</h4>
+                                            <p>Advanced AI-powered navigation and route intelligence.</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- CASE STUDIES — plain link (no dropdown) -->
+                    <li class="menu-item" role="none">
+                        <a class="dropdown-toggle" href="case-studies.html" role="menuitem">
+                            <span class="label">Case studies</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Right: Language + minimal Contact -->
+            <div class="right-controls">
+                <div class="lang dropdown">
+                    <button class="lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+                        <span class="code">EN</span>
+                        <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="lang-menu" role="menu">
+                        <li role="none"><button role="menuitem" data-lang="FR">FR</button></li>
+                        <li role="none"><button role="menuitem" data-lang="DE">DE</button></li>
+                        <li role="none"><button role="menuitem" data-lang="ES">ES</button></li>
+                        <li role="none"><button role="menuitem" data-lang="IT">IT</button></li>
+                    </ul>
+                </div>
+
+                <a class="btn ghost" href="contact.html">Contact</a>
+            </div>
+        </div>
+
+        <!-- Thin divider under header -->
+        <div class="rule rule-header"></div>
+
+        <!-- Tagline block (centered for Contact only) -->
+        <div class="tagline c-tagline">
+            <div class="tagline-inner c-tagline-inner">
+                <h1 class="c-title">News.</h1>
+                <p class="c-subtitle">Stay updated with Pivai.</p>
+            </div>
+        </div>
+
+        <!-- Thin divider under tagline -->
+        <div class="rule rule-tagline"></div>
+
+
+    </header>
+
+    <!-- HERO IMAGE (sits behind header content) -->
+    <section class="hero" aria-label="Company hero background">
+        <div class="overlay" aria-hidden="true"></div>
+    </section>
+    <!-- MAIN -->
+    <main>
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb" data-reveal>
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span class="current">Company</span>
+            <span>›</span>
+            <span class="current">News &amp; Events</span>
+        </nav>
+        <!-- NEWS & EVENTS -->
+        <section class="news wrap" id="news" data-reveal>
+            <header class="news__head">
+                <h2>News &amp; Events</h2>
+                <span class="underline"></span>
+                <p>Follow our journey as we demo real-time visual AI with SCDOT and share breakthroughs at leading
+                    conferences.</p>
+            </header>
+
+            <!-- thin elegant separator -->
+            <div class="news__divider" aria-hidden="true"></div>
+
+            <!-- Cards grid -->
+            <div class="news__grid">
+                <!-- Item -->
+                <article class="news-item">
+                    <a class="news-item__media" href="#">
+                        <img src="images/scdot.jpeg" alt="" loading="lazy">
+                    </a>
+                    <h3><a href="#">SCDOT field demonstrations (2026)</a></h3>
+                    <p class="excerpt">Live road-inspection runs showcasing our edge-AI perception and reporting
+                        workflow.</p>
+                    <a class="read" href="#">Read the article</a>
+                </article>
+
+                <article class="news-item">
+                    <a class="news-item__media" href="#">
+                        <img src="images/scdot.jpeg" alt="" loading="lazy">
+                    </a>
+                    <h3><a href="#">SCDOT Conference Columbia,SC (April 2026)</a></h3>
+                    <p class="excerpt">Conference presentations at the SCDOT general assembly</p>
+                    <a class="read" href="#">Read the article</a>
+                </article>
+                <!-- <article class="news-item">
+                    <a class="news-item__media" href="#">
+                        <img src="images/conference.jpg" alt="" loading="lazy">
+                    </a>
+                    <h3><a href="#">Conference presentations and new partnerships</a></h3>
+                    <p class="excerpt">TBA</p>
+                    <a class="read" href="#">Read the article</a>
+                </article> -->
+            </div>
+        </section>
+        <section class="get-in-touch" data-reveal>
+            <div class="get-in-touch__inner">
+                <h2>Let’s Get in Touch</h2>
+                <p>
+                    Have questions or want to explore collaboration opportunities?
+                    We’d love to hear from you - let’s make smarter, safer, and more efficient
+                    transportation together.
+                </p>
+                <a href="contact.html" class="btn-ghost">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <!-- Footer (keep your existing footer as-is) -->
+    <footer class="footer" data-reveal>
+        <div class="footer-top">
+            <div>
+                <h4>Subscribe</h4>
+                <p>Subscribe to our newsletter for updates.</p>
+                <a href="subscribe.html" class="btn">Subscribe</a>
+            </div>
+
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="news.html">News & Events</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="roadmap.html">RoadMap</a></li>
+                    <li><a href="signmap.html">SignMap</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Case Studies</h4>
+                <ul>
+                    <li><a href="case-studies.html">Explore Projects</a></li>
+                    <li><a href="case-studies.html">Road Inspection Data</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-col logo-col">
+                <a href="index.html" aria-label="PivaiTech home">
+                    <img src="images/pivailogo.png" alt="PivaiTech Logo">
+                </a>
+            </div>
+
+            <div class="footer-col text-col">
+                <p>&copy; 2025 Pivai. All rights reserved.</p>
+            </div>
+
+            <div class="footer-col social-col" aria-label="Social links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
